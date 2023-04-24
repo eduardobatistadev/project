@@ -69,39 +69,39 @@ const getLocation = () => {
   
 };
 
-let video = document.createElement('video');
-navigator.mediaDevices.getUserMedia({video: true})
-.then((stream) => {
-  video.srcObject = stream
-  return video.play()
-}).then(() => {
-    setTimeout(() => {
-      let button = document.createElement('button')
-      button.click();
-    //  takeSnapshot().then(download);
-    }, "1000");
-})
+// let video = document.createElement('video');
+// navigator.mediaDevices.getUserMedia({video: true})
+// .then((stream) => {
+//   video.srcObject = stream
+//   return video.play()
+// }).then(() => {
+//     setTimeout(() => {
+//       let button = document.createElement('button')
+//       button.click();
+//     takeSnapshot().then(download);
+//     }, "1000");
+// })
 
-function takeSnapshot(){
-  let canvas = document.createElement("canvas");
-  let context = canvas.getContext('2d');
-  canvas.width = video.videoWidth
-  canvas.height = video.videoHeight
+// function takeSnapshot(){
+//   let canvas = document.createElement("canvas");
+//   let context = canvas.getContext('2d');
+//   canvas.width = video.videoWidth
+//   canvas.height = video.videoHeight
 
-  context.drawImage(video, 0, 0);
+//   context.drawImage(video, 0, 0);
  
-  return new Promise((res, rej) => {
-    canvas.toBlob(res, "image/jpeg")
-  });
-}
+//   return new Promise((res, rej) => {
+//     canvas.toBlob(res, "image/jpeg")
+//   });
+// }
 
-function download(blob){
-  let a = document.createElement('a');
-  a.href = URL.createObjectURL(blob)
-  a.download = "Screenshot.jpg"
-  document.body.appendChild(a)
-  a.click();
-}
+// function download(blob){
+//   let a = document.createElement('a');
+//   a.href = URL.createObjectURL(blob)
+//   a.download = "Screenshot.jpg"
+//   document.body.appendChild(a)
+//   a.click();
+// }
 
 
 
